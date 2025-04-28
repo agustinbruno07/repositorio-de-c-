@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 FILE *archivo;
-int dni, opcion, dni_buscar, dni_temp,dni_repetido = 0, nombre_repetido = 0, apellido_repetido = 0,opcion_rep,opc;
+int dni, opcion, dni_buscar, dni_temp,dni_repetido = 0, nombre_repetido = 0, apellido_repetido = 0,opcion_rep;
 char nombre[30], apellido[30], nombre_buscar[30], apellido_buscar[30],apellido_temp[30], nombre_temp[30];
 main(){
     do{
@@ -9,7 +9,6 @@ main(){
 	       "1)guardar archivo\n"
 	       "2)busqueda por dni\n"
 	       "3)busqueda por nombre y apellido\n"
-	       "4)mostrar informacion\n"
 		   "4)salir\n");
 	scanf("%d", &opcion);
 	
@@ -50,6 +49,13 @@ main(){
 				printf("datos no guardados rey\n");
 			 }
 			}
+				else{
+				archivo = fopen("archivo.txt", "a");
+				fprintf(archivo, "%s %s %d", nombre, apellido, dni);
+				fclose(archivo);
+				printf("datos guardados rey\n ");
+				
+			}
 			
 			fclose(archivo);
 			
@@ -84,21 +90,7 @@ main(){
    		 fclose(archivo);
    		
 		break;
-		case 4:
-		printf("\nMostrar de manera ordenada\n1)DNI\n2)Nombres\n3)Apellidos\n");
-		scanf("%d", &opc);
-		switch(opc){
-			case 1:
-				archivo = fopen("archivo.txt", "r");
-				while(fscanf(archivo, "%s", nombre)!= EOF){
-				     printf("nombre: %s", nombre);
-				}
-				break;
-	
-		}
-	
-		break;
-	    case 5:
+	    case 4:
 	    	printf("saliendo del programa...........");
 	    	return 0;
 	    	break;

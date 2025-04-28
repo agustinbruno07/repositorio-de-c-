@@ -11,7 +11,9 @@ main(){
 	       "2)busqueda por dni\n"
 	       "3)busqueda por nombre y apellido\n"
 	       "4)mostrar informacion\n"
-		   "5)salir\n");
+	       "5)Guardar los cambios en un archivo nuevo de remplazo\n"
+		   "6)salir\n");
+		   
 	scanf("%d", &opcion);
 	
     switch(opcion){
@@ -58,7 +60,6 @@ main(){
 				printf("datos guardados rey\n ");
 				
 			}
-			
 			fclose(archivo);
 			
 		break;
@@ -121,7 +122,21 @@ main(){
 		}
 	
 		break;
-	    case 5:
+		case 5:
+			printf("guardando los cambios en un archivo nuevo /de remplazo\n");
+			archivo = fopen("archivo.txt", "r");
+			FILE *archivo_nuevo = fopen("archivo_nuevo.txt", "w");
+			char lineas[100];
+		  	while (fscanf(archivo, "%s %s %d", nombre, apellido, &dni) != EOF) {
+      	    fprintf(archivo_nuevo, "%s %s %d\n", nombre, apellido, &dni); 
+      	    
+          	}
+			fclose(archivo);
+			fclose(archivo_nuevo);
+			printf("Cambios guardados en un nuevo archivo\n\n");
+			break;
+			
+	    case 6:
 	    	printf("saliendo del programa...........");
 	    	return 0;
 	    	break;
