@@ -1,1 +1,3 @@
-agus 4225764
+agus 4225764agus 0
+bruno 1
+agus 100
