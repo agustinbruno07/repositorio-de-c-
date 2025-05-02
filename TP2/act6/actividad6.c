@@ -13,7 +13,7 @@ main(){
 			palabras++;
 		}
 	}
-	printf("\n la cadena con el orden de las palabras invertido queda: ");
+	printf("\n la cadena con el orden dde las palabras invertido queda: ");
 	for(i=0;i<strlen(cadena);i++){
 		for(j=0;j<strlen(cadena);j++){
 			if(cadena[j]==' '){
